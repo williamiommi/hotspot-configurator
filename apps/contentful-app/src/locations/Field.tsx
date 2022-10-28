@@ -1,19 +1,30 @@
-import React from 'react';
-import { Paragraph } from '@contentful/f36-components';
-import { FieldExtensionSDK } from '@contentful/app-sdk';
-import { /* useCMA, */ useSDK } from '@contentful/react-apps-toolkit';
+import { SkeletonImage, SkeletonContainer, SkeletonBodyText } from '@contentful/f36-components';
+import { useAutoResizer } from '@contentful/react-apps-toolkit';
+import HotspotApp from '../components/HotspotApp';
+import HotspotImageWrapperOutdated from '../components/HotspotImageWrapperOutdated';
+import MediaSelector from '../components/MediaSelector';
+import useInitApp from '../lib/hooks/useInitApp';
 
 const Field = () => {
-  const sdk = useSDK<FieldExtensionSDK>();
-  /*
-     To use the cma, inject it as follows.
-     If it is not needed, you can remove the next line.
-  */
-  // const cma = useCMA();
-  // If you only want to extend Contentful's default editing experience
-  // reuse Contentful's editor components
-  // -> https://www.contentful.com/developers/docs/extensibility/field-editors/
-  return <Paragraph>Hello Entry Field Component (AppId: {sdk.ids.app})</Paragraph>;
+  useAutoResizer();
+  const { isAppLoading, hasMedia, hasMediaOutdated } = useInitApp();
+  if (isAppLoading)
+    return (
+      <SkeletonContainer>
+        <SkeletonImage width="100%" height={40} />
+        <SkeletonBodyText numberOfLines={7} lineHeight={7} offsetTop={47} />
+      </SkeletonContainer>
+    );
+
+  if (hasMediaOutdated) {
+    return <HotspotImageWrapperOutdated />;
+  }
+
+  if (hasMedia) {
+    return <HotspotApp />;
+  }
+
+  return <MediaSelector />;
 };
 
 export default Field;
