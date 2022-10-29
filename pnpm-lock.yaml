@@ -183,20 +183,7 @@ importers:
       zustand: 4.1.3_react@18.2.0
 
   packages/tailwind-config:
-    specifiers:
-      '@tailwindcss/line-clamp': ^0.4.2
-      autoprefixer: ^10.4.13
-      postcss: ^8.4.18
-      prettier: ^2.7.1
-      prettier-plugin-tailwindcss: ^0.1.13
-      tailwindcss: ^3.2.1
-    devDependencies:
-      '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.1
-      autoprefixer: 10.4.13_postcss@8.4.18
-      postcss: 8.4.18
-      prettier: 2.7.1
-      prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
-      tailwindcss: 3.2.1_postcss@8.4.18
+    specifiers: {}
 
   packages/tsconfig:
     specifiers: {}
