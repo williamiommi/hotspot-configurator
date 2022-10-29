@@ -3,34 +3,33 @@ import type { NextPage } from 'next';
 import { useRef } from 'react';
 import Hotspot from '../components/Hotspot';
 import data from '../fakedata.js';
-import useResizeObserverCounter from '../lib/hooks/useResizeObserverCounter';
+import { useImageResizeCount } from 'shared';
 
 const Demo: NextPage = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const resizingCount = useResizeObserverCounter(imageRef);
+  const { imageIsResizing, imageResizeCount } = useImageResizeCount(imageRef);
 
   return (
     <>
-      <div ref={wrapperRef} className="max-w-full mx-auto relative overflow-hidden">
+      <div ref={wrapperRef} className="max-w-[1400px] mx-auto relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
-        <img ref={imageRef} src="./image2.jpeg" alt="demo image" />
+        <img ref={imageRef} src="./image.jpeg" alt="demo image" />
         {data.hotspots.map((hotspot) => (
           <Hotspot
             key={hotspot.id}
             title={hotspot.title}
             content={hotspot.content}
-            x1={hotspot.x || 0}
-            y1={hotspot.y || 0}
             left={hotspot.naturalX}
             top={hotspot.naturalY}
-            resizingCount={resizingCount}
+            resizingCount={imageResizeCount}
             collisionBoundaryRef={wrapperRef}
             imageRef={imageRef}
+            imageIsResizing={imageIsResizing}
           />
         ))}
       </div>
-      <p>{resizingCount}</p>
+      <p>{imageResizeCount}</p>
       <div className="my-[3000px]">&nbsp;</div>
     </>
   );

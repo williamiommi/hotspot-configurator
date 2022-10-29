@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import ExternalLink from '../components/icons/ExternalLink';
-import Logo from '../components/Logo';
+import Logo from '../components/icons/Logo';
 
 const Home: NextPage = () => {
   return (

@@ -1,40 +1,30 @@
 import * as Tooltip from '@radix-ui/react-tooltip';
-import { MotionConfig } from 'framer-motion';
-import { forwardRef, Ref, RefObject, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { RefObject, useEffect, useRef, useState } from 'react';
 
 interface HotspotProps {
   title: string;
   content: string;
-  x1: number;
-  y1: number;
   top: number;
   left: number;
   unit?: string;
   resizingCount: number;
   collisionBoundaryRef: RefObject<HTMLDivElement>;
   imageRef: RefObject<HTMLImageElement>;
+  imageIsResizing: boolean;
 }
 
 const Hotspot = ({
   resizingCount,
-  x1,
-  y1,
   top,
   left,
-  unit = 'px',
   title,
   content,
   collisionBoundaryRef,
   imageRef,
+  imageIsResizing,
 }: HotspotProps) => {
   const hotspotRef = useRef<HTMLButtonElement>(null);
-  const [open, setOpen] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [boundary, setBoundary] = useState<HTMLDivElement>();
-  useEffect(() => {
-    if (collisionBoundaryRef.current) setBoundary(collisionBoundaryRef.current);
-  }, [collisionBoundaryRef]);
 
   useEffect(() => {
     if (!imageRef.current || !hotspotRef.current) return;
@@ -45,17 +35,16 @@ const Hotspot = ({
 
   return (
     <Tooltip.Provider delayDuration={100}>
-      <Tooltip.Root open={open}>
+      <Tooltip.Root>
         <Tooltip.Trigger asChild>
           <i
             ref={hotspotRef}
-            className="absolute w-6 h-6 border rounded-full border-white bg-white/40 hover:cursor-pointer top-0 left-0"
+            className={`absolute w-6 h-6 border rounded-full border-white bg-white/40 hover:cursor-pointer transition-opacity duration-300 top-0 left-0 ${
+              imageIsResizing ? 'opacity-0' : ''
+            }`}
             style={{
-              transform: `translate(${coords.x}${unit}, ${coords.y}${unit})`,
+              transform: `translate(${coords.x}px, ${coords.y}px)`,
             }}
-            onClick={() => setOpen(!open)}
-            onMouseOver={() => setOpen(!open)}
-            onMouseOut={() => setOpen(false)}
           />
         </Tooltip.Trigger>
         <Tooltip.Portal>
