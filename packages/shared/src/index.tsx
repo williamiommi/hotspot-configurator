@@ -1,3 +1,2 @@
-import * as React from 'react';
-export * from './Button';
-export * from './StatusBadge';
+export * from './components';
+export * from './lib';
