@@ -8,9 +8,10 @@ import {
   HotspotList,
 } from 'shared';
 import Navigation from '../components/Navigation';
+import { useDemoStore } from '../lib/store/demoStore';
 
 const Playground: NextPage = () => {
-  const dummyFn = () => alert('This is just a demo');
+  const showDemoModal = useDemoStore((state) => state.showDemoModal);
   const isImageLoaded = useHotspotStore((state) => state.isImageLoaded);
   const addHotspot = useHotspotStore((state) => state.addHotspot);
   const setIsImageLoaded = useHotspotStore((state) => state.setIsImageLoaded);
@@ -32,10 +33,10 @@ const Playground: NextPage = () => {
           }`}
         >
           <HotspotImageActions
-            openAsset={dummyFn}
-            selectAsset={dummyFn}
-            addAsset={dummyFn}
-            removeAsset={dummyFn}
+            openAsset={showDemoModal}
+            selectAsset={showDemoModal}
+            addAsset={showDemoModal}
+            removeAsset={showDemoModal}
           />
           <HotspotImageWrapper />
           <HotspotAddButton onClick={addHotspot} />

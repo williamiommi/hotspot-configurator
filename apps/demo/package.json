@@ -14,7 +14,8 @@
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "shared": "workspace:*"
+    "shared": "workspace:*",
+    "zustand": "^4.1.3"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
