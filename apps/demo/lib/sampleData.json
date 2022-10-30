@@ -1,0 +1,65 @@
+{
+  "assetId": "xxx",
+  "hotspots": [
+    {
+      "id": "0a57f90d-ede3-4cb9-83a7-76ba961aa5d3",
+      "dark": true,
+      "title": "Sample Title 1",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit.",
+      "x": 236.3125,
+      "y": 128.44140625,
+      "naturalX": 2017.4790446559298,
+      "naturalY": 1096.5403388843201,
+      "percentageX": 34.599194729136165,
+      "percentageY": 28.16697505482456
+    },
+    {
+      "id": "788885b0-b332-42d5-8d3a-63393bf54859",
+      "dark": true,
+      "title": "Sample Title 2",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit.",
+      "x": 154.9609375,
+      "y": 218.484375,
+      "naturalX": 1322.9534795937043,
+      "naturalY": 1865.2624383223683,
+      "percentageX": 22.688277818448025,
+      "percentageY": 47.913240131578945
+    },
+    {
+      "id": "927b62c2-9969-4b5e-940a-abfa3e829235",
+      "dark": false,
+      "title": "Sample Title 3",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit.",
+      "x": 469.390625,
+      "y": 211.390625,
+      "naturalX": 4007.345145497804,
+      "naturalY": 1804.7011033442982,
+      "percentageX": 68.72483528550512,
+      "percentageY": 46.35759320175438
+    },
+    {
+      "id": "bd90a5f7-caa9-4366-8691-34af7726e10f",
+      "dark": true,
+      "title": "Sample Title 4",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "x": 233.96875,
+      "y": 63.80859375,
+      "naturalX": 1997.4696650805272,
+      "naturalY": 544.7518760279605,
+      "percentageX": 34.25603953147877,
+      "percentageY": 13.993112664473683
+    },
+    {
+      "id": "490e942e-97d8-47b6-b466-cf70e47e3ce5",
+      "dark": true,
+      "title": "Sample Title 5",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit.",
+      "x": 443.13671875,
+      "y": 356.75390625,
+      "naturalX": 3783.2067452873353,
+      "naturalY": 3045.7082391036183,
+      "percentageX": 64.88092514641288,
+      "percentageY": 78.23550575657895
+    }
+  ]
+}

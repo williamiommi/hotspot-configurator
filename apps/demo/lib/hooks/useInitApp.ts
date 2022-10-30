@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useHotspotStore } from 'shared';
+import sampleData from '../sampleData.json';
 
 export const useInitDemo = () => {
   const setMedia = useHotspotStore((state) => state.setMedia);
@@ -7,7 +8,7 @@ export const useInitDemo = () => {
   const setIsAdmin = useHotspotStore((state) => state.setIsAdmin);
   useEffect(() => {
     setMedia({ status: 'published', title: 'Coffee Love', url: './image.jpeg' });
-    setField({ assetId: 'xxx', hotspots: [] });
+    setField(sampleData);
     setIsAdmin(false);
   }, []);
 };
