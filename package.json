@@ -13,6 +13,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/uuid": "^8.3.4",
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
     "prettier-plugin-tailwindcss": "^0.1.13",
@@ -21,5 +22,11 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@7.14.0"
+  "packageManager": "pnpm@7.14.0",
+  "dependencies": {
+    "@contentful/f36-components": "4.21.2",
+    "@contentful/f36-icons": "^4.21.3",
+    "@contentful/f36-tokens": "4.0.1",
+    "uuid": "^9.0.0"
+  }
 }
