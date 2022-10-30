@@ -12,7 +12,7 @@ import { ChevronDownIcon, DeleteIcon, PreviewIcon } from '@contentful/f36-icons'
 import { useSDK } from '@contentful/react-apps-toolkit';
 import { useRef, useState } from 'react';
 import useHotspotStore from '../lib/store/hotspotStore';
-import { debounce } from 'shared';
+import { debounce } from '../lib/utils';
 
 export interface IHotspot {
   id: string;

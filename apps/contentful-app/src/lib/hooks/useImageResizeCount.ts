@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { debounce } from 'shared';
+import { debounce } from '../utils';
 
 const useImageResizeCount = (imageRef: React.RefObject<HTMLImageElement>) => {
   const [imageResizeCount, setImageResizeCount] = useState(0);
