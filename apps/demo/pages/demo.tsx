@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Hotspot from '../components/Hotspot';
 import data from '../fakedata.js';
 import { useImageResizeCount } from 'shared';
+import Navigation from '../components/Navigation';
 
 const Demo: NextPage = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -12,6 +13,7 @@ const Demo: NextPage = () => {
 
   return (
     <>
+      <Navigation />
       <div ref={wrapperRef} className="max-w-[1400px] mx-auto relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
         <img ref={imageRef} src="./image.jpeg" alt="demo image" />
