@@ -8,19 +8,14 @@ import {
   HotspotList,
 } from 'shared';
 import Navigation from '../components/Navigation';
+import useDemoBag from '../lib/hooks/useDemoBag';
 import { useDemoStore } from '../lib/store/demoStore';
 
 const Playground: NextPage = () => {
   const showDemoModal = useDemoStore((state) => state.showDemoModal);
   const isImageLoaded = useHotspotStore((state) => state.isImageLoaded);
   const addHotspot = useHotspotStore((state) => state.addHotspot);
-  const setIsImageLoaded = useHotspotStore((state) => state.setIsImageLoaded);
-
-  useEffect(() => {
-    return () => {
-      setIsImageLoaded(false);
-    };
-  }, []);
+  const { removeHotspotHandler } = useDemoBag();
 
   return (
     <>
@@ -40,7 +35,7 @@ const Playground: NextPage = () => {
           />
           <HotspotImageWrapper />
           <HotspotAddButton onClick={addHotspot} />
-          <HotspotList onRemove={(id: string) => console.log(id)} />
+          <HotspotList onRemove={removeHotspotHandler} />
         </div>
       </div>
     </>
