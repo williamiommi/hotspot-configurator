@@ -13,6 +13,10 @@ const Demo: NextPage = () => {
   const { imageIsResizing, imageResizeCount } = useImageResizeCount(imageRef);
   const field = useHotspotStore((state) => state.field);
 
+  useEffect(() => {
+    if (imageRef.current) setImageLoaded(true);
+  }, []);
+
   return (
     <>
       <Navigation />
@@ -23,12 +27,7 @@ const Demo: NextPage = () => {
         }`}
       >
         <div className="absolute inset-0 bg-black/20" />
-        <img
-          ref={imageRef}
-          src="./image.jpeg"
-          alt="demo image"
-          onLoad={() => setImageLoaded(true)}
-        />
+        <img ref={imageRef} src="./image.jpeg" alt="demo image" />
         {field?.hotspots &&
           field.hotspots.map((hotspot) => (
             <Hotspot
