@@ -7,7 +7,7 @@ import {
   HotspotAddButton,
   HotspotList,
 } from 'shared';
-import Navigation from '../components/Navigation';
+import MainLayout from '../components/MainLayout';
 import useDialogUtils from '../lib/hooks/useDialogUtils';
 
 const Playground: NextPage = () => {
@@ -21,8 +21,7 @@ const Playground: NextPage = () => {
   }, [setIsImageLoaded]);
 
   return (
-    <>
-      <Navigation />
+    <MainLayout>
       <div className="flex flex-col mx-auto max-w-[703px] border-l-4 border-l-gray-300 pl-4">
         <span className="text-gray-500 text-sm">Hotspot</span>
         <div
@@ -41,7 +40,7 @@ const Playground: NextPage = () => {
           <HotspotList onRemove={removeHotspotHandler} />
         </div>
       </div>
-    </>
+    </MainLayout>
   );
 };
 

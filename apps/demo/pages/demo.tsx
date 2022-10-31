@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { useEffect, useRef, useState } from 'react';
 import Hotspot from '../components/Hotspot';
 import { useHotspotStore, useImageResizeCount } from 'shared';
-import Navigation from '../components/Navigation';
+import MainLayout from '../components/MainLayout';
 
 const Demo: NextPage = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -17,8 +17,7 @@ const Demo: NextPage = () => {
   }, []);
 
   return (
-    <>
-      <Navigation />
+    <MainLayout>
       <div
         ref={wrapperRef}
         className={`max-w-[1400px] mx-auto relative overflow-hidden transition-opacity duration-1000 opacity-0 ${
@@ -43,7 +42,7 @@ const Demo: NextPage = () => {
             />
           ))}
       </div>
-    </>
+    </MainLayout>
   );
 };
 
