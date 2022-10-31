@@ -1,15 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { DndContext } from '@dnd-kit/core';
-import { restrictToParentElement } from '@dnd-kit/modifiers';
 import { useRef } from 'react';
-import { useHotspotStore, useImageResizeCount } from '../lib';
-import HotspotDraggable from './HotspotDraggable';
+import { useHotspotStore } from '../lib';
+import HotspotDraggableList from './HotspotDraggableList';
 
 interface HotspotImageWrapperProps {}
 
 export const HotspotImageWrapper: React.FC<HotspotImageWrapperProps> = () => {
   const imageRef = useRef<HTMLImageElement>(null);
-  const { imageResizeCount } = useImageResizeCount(imageRef);
   const isImageLoaded = useHotspotStore((state) => state.isImageLoaded);
   const highlightedHotspot = useHotspotStore((state) => state.highlightedHotspot);
   const media = useHotspotStore((state) => state.media);
@@ -31,19 +28,7 @@ export const HotspotImageWrapper: React.FC<HotspotImageWrapperProps> = () => {
           onLoad={() => setIsImageLoaded(true)}
         />
       )}
-      <DndContext modifiers={[restrictToParentElement]}>
-        {isImageLoaded &&
-          field?.hotspots &&
-          field.hotspots.map((hotspot, index) => (
-            <HotspotDraggable
-              key={hotspot.id}
-              hotspot={hotspot}
-              label={index + 1}
-              imageRef={imageRef}
-              imageResizeCount={imageResizeCount}
-            />
-          ))}
-      </DndContext>
+      {isImageLoaded && <HotspotDraggableList imageRef={imageRef} />}
     </div>
   );
 };
