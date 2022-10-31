@@ -113,6 +113,7 @@ export const HotspotListItem: React.FC<HotspotListItemProps> = ({ hotspot, label
               id={`content${hotspot.id}`}
               onChange={debounce(updateHotspotHandler, 500)}
               defaultValue={hotspot.content}
+              rows={4}
               resize="none"
             />
           </FormControl>
