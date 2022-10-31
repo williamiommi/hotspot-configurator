@@ -18,7 +18,7 @@ const Playground: NextPage = () => {
 
   useEffect(() => {
     return () => setIsImageLoaded(false);
-  }, []);
+  }, [setIsImageLoaded]);
 
   return (
     <>
