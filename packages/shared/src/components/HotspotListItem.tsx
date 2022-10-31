@@ -6,11 +6,11 @@ import {
   IconButton,
   Textarea,
   TextInput,
-  TextLink,
 } from '@contentful/f36-components';
 import { ChevronDownIcon, DeleteIcon, PreviewIcon } from '@contentful/f36-icons';
 import { debounce, useHotspotStore } from '../lib';
 import { IHotspot } from '../lib/types/IHotspot';
+import { HotspotCoords } from './HotspotCoords';
 
 interface HotspotListItemProps {
   hotspot: IHotspot;
@@ -126,44 +126,7 @@ export const HotspotListItem: React.FC<HotspotListItemProps> = ({ hotspot, label
               Dark
             </Checkbox>
           </FormControl>
-          {isAdmin && (
-            <>
-              <TextLink
-                className="mt-3 !text-[9px]"
-                onClick={() => setIsCoordsVisible(!isCoordsVisible)}
-              >
-                {isCoordsVisible ? 'Hide' : 'Show'} coordinates
-              </TextLink>
-              {isCoordsVisible && (
-                <div className="text-xs">
-                  <div className="flex gap-1">
-                    <strong className="w-16 text-right">x:</strong>
-                    <span>{hotspot.x}px</span>
-                  </div>
-                  <div className="flex gap-1">
-                    <strong className="w-16 text-right">y:</strong>
-                    <span>{hotspot.y}px</span>
-                  </div>
-                  <div className="flex gap-1">
-                    <strong className="w-16 text-right">% x:</strong>
-                    <span>{hotspot.percentageX}%</span>
-                  </div>
-                  <div className="flex gap-1">
-                    <strong className="w-16 text-right">% y:</strong>
-                    <span>{hotspot.percentageY}%</span>
-                  </div>
-                  <div className="flex gap-1">
-                    <strong className="w-16 text-right">natural x:</strong>
-                    <span>{hotspot.naturalX}px</span>
-                  </div>
-                  <div className="flex gap-1">
-                    <strong className="w-16 text-right">natural y:</strong>
-                    <span>{hotspot.naturalY}px</span>
-                  </div>
-                </div>
-              )}
-            </>
-          )}
+          <HotspotCoords hotspot={hotspot} />
         </div>
       </Card>
     </>

@@ -4,7 +4,7 @@ import { useHotspotStore } from '../lib/store/hotspotStore';
 
 interface HotspotImageActionsProps {
   noOpenAsset?: boolean;
-  openAsset: () => void;
+  openAsset?: () => void;
   selectAsset: () => void;
   addAsset: () => void;
   removeAsset: () => void;
