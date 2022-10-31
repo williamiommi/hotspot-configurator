@@ -3,7 +3,6 @@ import { restrictToParentElement } from '@dnd-kit/modifiers';
 import { useRef } from 'react';
 import useImageResizeCount from '../lib/hooks/useImageResizeCount';
 import useHotspotStore from '../lib/store/hotspotStore';
-import HotspotAddButton from './HotspotAddButton';
 import HotspotDraggable from './HotspotDraggable';
 import HotspotImageActions from './HotspotImageActions';
 
@@ -51,7 +50,6 @@ const HotspotImageWrapper: React.FC<HotspotImageWrapperProps> = () => {
             />
           ))}
       </div>
-      <HotspotAddButton />
     </DndContext>
   );
 };
