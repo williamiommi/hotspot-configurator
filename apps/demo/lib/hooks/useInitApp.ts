@@ -9,6 +9,6 @@ export const useInitDemo = () => {
   useEffect(() => {
     setMedia({ status: 'published', title: 'Coffee Love', url: './image.jpeg' });
     setField(sampleData);
-    setIsAdmin(false);
+    setIsAdmin(true);
   }, []);
 };

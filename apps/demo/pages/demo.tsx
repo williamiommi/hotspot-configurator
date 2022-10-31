@@ -28,7 +28,8 @@ const Demo: NextPage = () => {
       >
         <div className="absolute inset-0 bg-black/20" />
         <img ref={imageRef} src="./image.jpeg" alt="demo image" />
-        {field?.hotspots &&
+        {imageLoaded &&
+          field?.hotspots &&
           field.hotspots.map((hotspot) => (
             <Hotspot
               key={hotspot.id}

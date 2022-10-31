@@ -13,6 +13,7 @@ import { useDemoStore } from '../lib/store/demoStore';
 
 const Playground: NextPage = () => {
   const showDemoModal = useDemoStore((state) => state.showDemoModal);
+  const isImageLoaded = useHotspotStore((state) => state.isImageLoaded);
   const setIsImageLoaded = useHotspotStore((state) => state.setIsImageLoaded);
   const addHotspot = useHotspotStore((state) => state.addHotspot);
   const { removeHotspotHandler } = useDemoBag();
@@ -26,7 +27,11 @@ const Playground: NextPage = () => {
       <Navigation />
       <div className="flex flex-col mx-auto w-[703px] border-l-4 border-l-gray-300 pl-4">
         <span className="text-gray-500 text-sm">Hotspot</span>
-        <div className={`max-w-fit transition-opacity duration-500`}>
+        <div
+          className={`max-w-fit transition-opacity duration-1000 opacity-0 ${
+            isImageLoaded ? 'opacity-100' : ''
+          }`}
+        >
           <HotspotImageActions
             openAsset={showDemoModal}
             selectAsset={showDemoModal}
