@@ -23,7 +23,7 @@ const Playground: NextPage = () => {
   return (
     <>
       <Navigation />
-      <div className="flex flex-col mx-auto w-[703px] border-l-4 border-l-gray-300 pl-4">
+      <div className="flex flex-col mx-auto max-w-[703px] border-l-4 border-l-gray-300 pl-4">
         <span className="text-gray-500 text-sm">Hotspot</span>
         <div
           className={`max-w-fit transition-opacity duration-1000 opacity-0 ${
