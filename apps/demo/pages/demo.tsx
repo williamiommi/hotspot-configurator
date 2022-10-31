@@ -2,7 +2,6 @@
 import type { NextPage } from 'next';
 import { useEffect, useRef, useState } from 'react';
 import Hotspot from '../components/Hotspot';
-import data from '../fakedata.js';
 import { useHotspotStore, useImageResizeCount } from 'shared';
 import Navigation from '../components/Navigation';
 
@@ -26,7 +25,7 @@ const Demo: NextPage = () => {
           imageLoaded ? 'opacity-100' : ''
         }`}
       >
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/30" />
         <img ref={imageRef} src="./image.jpeg" alt="demo image" />
         {imageLoaded &&
           field?.hotspots &&

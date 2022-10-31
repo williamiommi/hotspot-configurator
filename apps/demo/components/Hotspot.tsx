@@ -39,7 +39,7 @@ const Hotspot = ({
         <Tooltip.Trigger asChild>
           <i
             ref={hotspotRef}
-            className={`absolute w-6 h-6 border rounded-full border-white bg-white/40 hover:cursor-pointer transition-opacity duration-300 top-0 left-0 ${
+            className={`absolute w-6 h-6 border rounded-full border-white bg-blue-600/20 hover:cursor-pointer transition-opacity duration-300 top-0 left-0 ${
               imageIsResizing ? 'opacity-0' : ''
             }`}
             style={{
@@ -51,7 +51,7 @@ const Hotspot = ({
           <Tooltip.Content
             collisionBoundary={collisionBoundaryRef.current}
             collisionPadding={2}
-            className="flex flex-col bg-white p-2 rounded-lg max-w-xs"
+            className="flex flex-col bg-white p-2 rounded-lg max-w-xs shadow-xl"
           >
             <h3 className="font-bold">{title}</h3>
             <p>{content}</p>

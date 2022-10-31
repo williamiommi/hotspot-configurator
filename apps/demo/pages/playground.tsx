@@ -8,15 +8,13 @@ import {
   HotspotList,
 } from 'shared';
 import Navigation from '../components/Navigation';
-import useDemoBag from '../lib/hooks/useDemoBag';
-import { useDemoStore } from '../lib/store/demoStore';
+import useDialogUtils from '../lib/hooks/useDialogUtils';
 
 const Playground: NextPage = () => {
-  const showDemoModal = useDemoStore((state) => state.showDemoModal);
   const isImageLoaded = useHotspotStore((state) => state.isImageLoaded);
   const setIsImageLoaded = useHotspotStore((state) => state.setIsImageLoaded);
   const addHotspot = useHotspotStore((state) => state.addHotspot);
-  const { removeHotspotHandler } = useDemoBag();
+  const { demoDialogLauncher, removeHotspotHandler } = useDialogUtils();
 
   useEffect(() => {
     return () => setIsImageLoaded(false);
@@ -33,10 +31,10 @@ const Playground: NextPage = () => {
           }`}
         >
           <HotspotImageActions
-            openAsset={showDemoModal}
-            selectAsset={showDemoModal}
-            addAsset={showDemoModal}
-            removeAsset={showDemoModal}
+            openAsset={demoDialogLauncher}
+            selectAsset={demoDialogLauncher}
+            addAsset={demoDialogLauncher}
+            removeAsset={demoDialogLauncher}
           />
           <HotspotImageWrapper />
           <HotspotAddButton onClick={addHotspot} />
