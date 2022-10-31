@@ -15,7 +15,10 @@ const ModalsWrapper = () => {
         confirmLabel="Confirm"
         isShown={isDemoModalVisible}
       >
-        <Text>This is a demo app</Text>
+        <Text>
+          This is a demo. <br />
+          You can&apos;t view, change, add or remove the image.
+        </Text>
       </ModalConfirm>
     </>
   );
