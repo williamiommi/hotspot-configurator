@@ -38,3 +38,5 @@ export const generateEmptyHotspot = (): IHotspot => {
   };
   return hotSpot;
 };
+
+export const stringifyCompare = (a: any, b: any) => JSON.stringify(a) === JSON.stringify(b);
