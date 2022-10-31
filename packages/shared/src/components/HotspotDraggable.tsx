@@ -1,7 +1,7 @@
 import { useDraggable } from '@dnd-kit/core';
 import classNames from 'classnames';
 import useHotspotDraggableBag from '../lib/hooks/useHotspotDraggableBag';
-import IHotspot from '../lib/types/IHotspot';
+import { IHotspot } from '../lib/types/IHotspot';
 
 interface HotspotDraggableProps {
   hotspot: IHotspot;

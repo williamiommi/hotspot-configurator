@@ -1,6 +1,6 @@
-import IHotspot from './IHotspot';
+import { IHotspot } from './IHotspot';
 
-export default interface IField {
+export interface IField {
   assetId?: string;
   hotspots?: IHotspot[];
 }

@@ -1,4 +1,4 @@
-export default interface IHotspot {
+export interface IHotspot {
   id: string;
   title: string;
   content: string;

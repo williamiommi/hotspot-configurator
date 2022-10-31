@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import IHotspot from './types/IHotspot';
+import { IHotspot } from './types/IHotspot';
 
 export const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 

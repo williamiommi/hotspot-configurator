@@ -10,7 +10,7 @@ import {
 } from '@contentful/f36-components';
 import { ChevronDownIcon, DeleteIcon, PreviewIcon } from '@contentful/f36-icons';
 import { debounce, useHotspotStore } from '../lib';
-import IHotspot from '../lib/types/IHotspot';
+import { IHotspot } from '../lib/types/IHotspot';
 
 interface HotspotListItemProps {
   hotspot: IHotspot;

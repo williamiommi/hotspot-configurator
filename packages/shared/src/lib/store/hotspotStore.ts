@@ -1,7 +1,7 @@
 import create from 'zustand';
-import IField from '../types/IField';
-import IHotspot from '../types/IHotspot';
-import IMedia from '../types/IMedia';
+import { IField } from '../types/IField';
+import { IHotspot } from '../types/IHotspot';
+import { IMedia } from '../types/IMedia';
 import { generateEmptyHotspot, wait } from '../utils';
 import { subscribeWithSelector } from 'zustand/middleware';
 

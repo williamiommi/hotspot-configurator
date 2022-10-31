@@ -1,7 +1,7 @@
 import { DragEndEvent, DragStartEvent, useDndMonitor } from '@dnd-kit/core';
 import { useEffect, useState } from 'react';
 import { useHotspotStore } from '../store/hotspotStore';
-import IHotspot from '../types/IHotspot';
+import { IHotspot } from '../types/IHotspot';
 
 const useHotspotDraggableBag = (
   label: number,
