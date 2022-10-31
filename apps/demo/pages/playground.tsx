@@ -39,7 +39,7 @@ const Playground: NextPage = () => {
             removeAsset={showDemoModal}
           />
           <HotspotImageWrapper />
-          <HotspotAddButton />
+          <HotspotAddButton onClick={addHotspot} />
           <HotspotList onRemove={removeHotspotHandler} />
         </div>
       </div>
