@@ -1,5 +1,8 @@
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { RefObject, useEffect, useRef, useState } from 'react';
+import { isTouchDevice } from 'shared';
+import PopoverComponent from './Popover';
+import TooltipComponent from './Tooltip';
 
 interface HotspotProps {
   title: string;
@@ -33,33 +36,30 @@ const Hotspot = ({
     setCoords({ x: newX, y: newY });
   }, [resizingCount, imageRef, top, left]);
 
+  const Button = (
+    <button
+      ref={hotspotRef}
+      className={`absolute w-6 h-6 border rounded-full border-white bg-blue-600/20 hover:cursor-pointer transition-opacity duration-300 top-0 left-0 ${
+        imageIsResizing ? 'opacity-0' : ''
+      }`}
+      style={{
+        transform: `translate(${coords.x}px, ${coords.y}px)`,
+      }}
+    />
+  );
+
+  if (!isTouchDevice()) {
+    return (
+      <TooltipComponent collisionBoundaryRef={collisionBoundaryRef} title={title} content={content}>
+        {Button}
+      </TooltipComponent>
+    );
+  }
+
   return (
-    <Tooltip.Provider delayDuration={100}>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild>
-          <i
-            ref={hotspotRef}
-            className={`absolute w-6 h-6 border rounded-full border-white bg-blue-600/20 hover:cursor-pointer transition-opacity duration-300 top-0 left-0 ${
-              imageIsResizing ? 'opacity-0' : ''
-            }`}
-            style={{
-              transform: `translate(${coords.x}px, ${coords.y}px)`,
-            }}
-          />
-        </Tooltip.Trigger>
-        <Tooltip.Portal>
-          <Tooltip.Content
-            collisionBoundary={collisionBoundaryRef.current}
-            collisionPadding={2}
-            className="flex flex-col bg-white p-2 rounded-lg max-w-xs shadow-xl"
-          >
-            <h3 className="font-bold">{title}</h3>
-            <p>{content}</p>
-            <Tooltip.Arrow className="fill-white" />
-          </Tooltip.Content>
-        </Tooltip.Portal>
-      </Tooltip.Root>
-    </Tooltip.Provider>
+    <PopoverComponent collisionBoundaryRef={collisionBoundaryRef} title={title} content={content}>
+      {Button}
+    </PopoverComponent>
   );
 };
 

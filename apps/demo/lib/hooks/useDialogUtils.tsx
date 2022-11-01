@@ -32,7 +32,7 @@ const useDialogUtils = () => {
           title="Confirmation required"
           onConfirm={() => onClose(true)}
           onCancel={() => onClose(false)}
-          intent="negative"
+          intent="positive"
           isShown={isShown}
         >
           <Text>Do you really want to remove the selected hotspot?</Text>

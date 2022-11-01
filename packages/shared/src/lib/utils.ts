@@ -42,3 +42,5 @@ export const generateEmptyHotspot = (): IHotspot => {
 };
 
 export const stringifyCompare = (a: any, b: any) => JSON.stringify(a) === JSON.stringify(b);
+
+export const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
