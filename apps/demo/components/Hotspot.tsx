@@ -31,8 +31,9 @@ const Hotspot = ({
 
   useEffect(() => {
     if (!imageRef.current || !hotspotRef.current) return;
-    const newX = (left * imageRef.current.offsetWidth) / imageRef.current.naturalWidth;
-    const newY = (top * imageRef.current.offsetHeight) / imageRef.current.naturalHeight;
+    const { offsetWidth, offsetHeight, naturalWidth, naturalHeight } = imageRef.current;
+    const newX = (left * offsetWidth) / naturalWidth;
+    const newY = (top * offsetHeight) / naturalHeight;
     setCoords({ x: newX, y: newY });
   }, [resizingCount, imageRef, top, left]);
 
