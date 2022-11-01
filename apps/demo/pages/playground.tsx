@@ -1,20 +1,13 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect } from 'react';
-import {
-  useHotspotStore,
-  HotspotImageActions,
-  HotspotImageWrapper,
-  HotspotAddButton,
-  HotspotList,
-} from 'shared';
+import { useHotspotStore, HotspotImageActions, HotspotImageWrapper, HotspotList } from 'shared';
 import MainLayout from '../components/MainLayout';
 import useDialogUtils from '../lib/hooks/useDialogUtils';
 
 const Playground: NextPage = () => {
   const isImageLoaded = useHotspotStore((state) => state.isImageLoaded);
   const setIsImageLoaded = useHotspotStore((state) => state.setIsImageLoaded);
-  const addHotspot = useHotspotStore((state) => state.addHotspot);
   const { demoDialogLauncher, removeHotspotHandler } = useDialogUtils();
 
   useEffect(() => {
@@ -41,7 +34,6 @@ const Playground: NextPage = () => {
               removeAsset={demoDialogLauncher}
             />
             <HotspotImageWrapper />
-            <HotspotAddButton onClick={addHotspot} />
             <HotspotList onRemove={removeHotspotHandler} />
           </div>
         </div>

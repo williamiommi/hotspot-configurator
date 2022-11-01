@@ -20,7 +20,7 @@ interface IHotspotStore {
   setMedia: (media: IMedia) => void;
   clearMedia: () => void;
   highlightHotspot: (hotspotIdToHighlight: string) => void;
-  addHotspot: () => IField;
+  addHotspot: (lastImageWidth?: number, lastImageHeight?: number) => IField;
   updateHotspot: (hotspotToUpdate: IHotspot) => IField;
   removeHotspot: (hotspotIdToRemove: string) => IField;
 }
@@ -48,10 +48,13 @@ export const useHotspotStore = create(
       await wait(2500);
       set({ highlightedHotspot: undefined });
     },
-    addHotspot: () => {
+    addHotspot: (lastImageWidth, lastImageHeight) => {
       const newField = {
         ...get().field,
-        hotspots: [...(get().field?.hotspots || []), generateEmptyHotspot()],
+        hotspots: [
+          ...(get().field?.hotspots || []),
+          generateEmptyHotspot(lastImageWidth, lastImageHeight),
+        ],
       };
       set(() => ({ field: newField }));
       return newField;

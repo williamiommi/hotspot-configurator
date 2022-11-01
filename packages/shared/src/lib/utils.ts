@@ -23,7 +23,10 @@ export const debounce = <F extends (...params: any[]) => void>(
   } as F;
 };
 
-export const generateEmptyHotspot = (): IHotspot => {
+export const generateEmptyHotspot = (
+  lastImageWidth?: number,
+  lastImageHeight?: number
+): IHotspot => {
   let hotSpot: IHotspot = {
     id: uuidv4(),
     dark: true,
@@ -31,8 +34,8 @@ export const generateEmptyHotspot = (): IHotspot => {
     content: 'Sample Content',
     x: 0,
     y: 0,
-    lastImageWidth: 1,
-    lastImageHeight: 1,
+    lastImageWidth: lastImageWidth || 1,
+    lastImageHeight: lastImageHeight || 1,
     naturalX: 0,
     naturalY: 0,
     percentageX: 0,
