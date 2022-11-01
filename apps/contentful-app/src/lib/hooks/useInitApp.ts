@@ -32,7 +32,7 @@ const useInitApp = () => {
       }
     );
     // save entry on every value update
-    //sdk.field.onValueChanged(sdk.entry.save);
+    sdk.field.onValueChanged(sdk.entry.save);
 
     const value: IField = sdk.field.getValue();
     if (value?.assetId) {
