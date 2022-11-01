@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Hotspot from '../components/Hotspot';
 import { useHotspotStore, useImageResizeCount } from 'shared';
 import MainLayout from '../components/MainLayout';
+import Head from 'next/head';
 
 const Demo: NextPage = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -18,6 +19,9 @@ const Demo: NextPage = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>Contentful Hotspot Configurator | Demo</title>
+      </Head>
       <div
         ref={wrapperRef}
         className={`max-w-[1400px] mx-auto relative overflow-hidden transition-opacity duration-1000 opacity-0 ${
