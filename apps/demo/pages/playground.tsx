@@ -22,22 +22,24 @@ const Playground: NextPage = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-col mx-auto max-w-[703px] border-l-4 border-l-gray-300 pl-4">
-        <span className="text-gray-500 text-sm">Hotspot</span>
-        <div
-          className={`max-w-fit transition-opacity duration-1000 opacity-0 ${
-            isImageLoaded ? 'opacity-100' : ''
-          }`}
-        >
-          <HotspotImageActions
-            openAsset={demoDialogLauncher}
-            selectAsset={demoDialogLauncher}
-            addAsset={demoDialogLauncher}
-            removeAsset={demoDialogLauncher}
-          />
-          <HotspotImageWrapper />
-          <HotspotAddButton onClick={addHotspot} />
-          <HotspotList onRemove={removeHotspotHandler} />
+      <div className="mx-auto max-w-[739px] px-2">
+        <div className="flex flex-col border-l-4 border-l-gray-300 pl-4">
+          <span className="text-gray-500 text-sm">Hotspot</span>
+          <div
+            className={`max-w-fit transition-opacity duration-1000 opacity-0 ${
+              isImageLoaded ? 'opacity-100' : ''
+            }`}
+          >
+            <HotspotImageActions
+              openAsset={demoDialogLauncher}
+              selectAsset={demoDialogLauncher}
+              addAsset={demoDialogLauncher}
+              removeAsset={demoDialogLauncher}
+            />
+            <HotspotImageWrapper />
+            <HotspotAddButton onClick={addHotspot} />
+            <HotspotList onRemove={removeHotspotHandler} />
+          </div>
         </div>
       </div>
     </MainLayout>

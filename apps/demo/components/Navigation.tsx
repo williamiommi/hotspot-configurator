@@ -45,47 +45,50 @@ const Navigation = () => {
           </a>
         </Link>
       </div>
-      <nav className="lg:hidden">
-        <Menu>
-          <Menu.Trigger>
-            <IconButton variant="transparent" icon={<MenuIcon />} aria-label="toggle menu" />
-          </Menu.Trigger>
-          <Menu.List>
-            <Menu.Item>
-              <Link href="/playground">
-                <a
-                  className={`text-lg border-b border-b-transparent ${
-                    pathname === '/playground' ? '!border-b-black' : ''
-                  }`}
-                >
-                  Playground
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link href="/demo">
-                <a
-                  className={`text-lg border-b border-b-transparent ${
-                    pathname === '/demo' ? '!border-b-black' : ''
-                  }`}
-                >
-                  Demo
-                </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link href="">
-                <a
-                  target="_blank"
-                  className="flex items-center gap-2 bg-blue-700 text-white p-4 rounded-lg transition-colors duration-300 font-bold hover:bg-blue-800"
-                >
-                  View the article <ExternalLink />
-                </a>
-              </Link>
-            </Menu.Item>
-          </Menu.List>
-        </Menu>
-      </nav>
+      <Menu>
+        <Menu.Trigger>
+          <IconButton
+            className="lg:!hidden"
+            variant="transparent"
+            icon={<MenuIcon />}
+            aria-label="toggle menu"
+          />
+        </Menu.Trigger>
+        <Menu.List className="!p-0 lg:!hidden">
+          <Menu.Item className="!p-0">
+            <Link href="/playground">
+              <a
+                className={`p-3 block w-full text-lg ${
+                  pathname === '/playground' ? 'bg-blue-600/10' : ''
+                }`}
+              >
+                Playground
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item className="!p-0">
+            <Link href="/demo">
+              <a
+                className={`p-3 block w-full text-lg ${
+                  pathname === '/demo' ? 'bg-blue-600/10' : ''
+                }`}
+              >
+                Demo
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item className="!py-5 hover:!bg-transparent hover:!cursor-auto">
+            <Link href="">
+              <a
+                target="_blank"
+                className="flex items-center gap-2 bg-blue-700 text-white p-4 rounded-lg transition-colors duration-300 font-bold hover:bg-blue-800"
+              >
+                View the article <ExternalLink />
+              </a>
+            </Link>
+          </Menu.Item>
+        </Menu.List>
+      </Menu>
     </header>
   );
 };
