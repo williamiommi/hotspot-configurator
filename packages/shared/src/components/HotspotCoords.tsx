@@ -24,10 +24,10 @@ export const HotspotCoords: React.FC<HotspotCoordsProps> = ({ hotspot }) => {
           <span className="bg-white p-2">{hotspot.x}px</span>
           <span className="font-bold bg-gray-100 p-2 text-right">Y</span>
           <span className="bg-white p-2">{hotspot.y}px</span>
-          <span className="font-bold bg-gray-100 p-2 text-right">Last Image Width</span>
-          <span className="bg-white p-2">{hotspot.lastImageWidth}px</span>
-          <span className="font-bold bg-gray-100 p-2 text-right">Last Image Height</span>
-          <span className="bg-white p-2">{hotspot.lastImageHeight}px</span>
+          <span className="font-bold bg-gray-100 p-2 text-right">App Image Width</span>
+          <span className="bg-white p-2">{hotspot.appImageWidth}px</span>
+          <span className="font-bold bg-gray-100 p-2 text-right">App Image Height</span>
+          <span className="bg-white p-2">{hotspot.appImageHeight}px</span>
 
           <span className="font-bold bg-gray-100 p-2 text-right">Natural X</span>
           <span className="bg-white p-2">{hotspot.naturalX}px</span>
