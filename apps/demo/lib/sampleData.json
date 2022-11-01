@@ -6,14 +6,14 @@
       "dark": true,
       "title": "Sample Title 1",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit.",
-      "x": 236.3125,
-      "y": 128.44140625,
+      "x": 244.9296875,
+      "y": 134.3359375,
       "lastImageWidth": 703,
       "lastImageHeight": 469,
-      "naturalX": 2017.4790446559298,
-      "naturalY": 1096.5403388843201,
-      "percentageX": 34.599194729136165,
-      "percentageY": 28.16697505482456
+      "naturalX": 2031.5576213549075,
+      "naturalY": 1115.0742104211088,
+      "percentageX": 34.84063833570413,
+      "percentageY": 28.64305703624734
     },
     {
       "id": "788885b0-b332-42d5-8d3a-63393bf54859",
@@ -62,14 +62,14 @@
       "dark": true,
       "title": "Sample Title 5",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget lectus ac ante ullamcorper hendrerit.",
-      "x": 443.13671875,
-      "y": 356.75390625,
+      "x": 456.8359375,
+      "y": 365.17578125,
       "lastImageWidth": 703,
       "lastImageHeight": 469,
-      "naturalX": 3783.2067452873353,
-      "naturalY": 3045.7082391036183,
-      "percentageX": 64.88092514641288,
-      "percentageY": 78.23550575657895
+      "naturalX": 3789.203914029161,
+      "naturalY": 3031.1925722947763,
+      "percentageX": 64.98377489331438,
+      "percentageY": 77.86263992537313
     }
   ]
 }
