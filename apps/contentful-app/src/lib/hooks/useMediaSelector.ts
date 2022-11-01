@@ -17,10 +17,9 @@ const useMediaSelector = () => {
 
   const setAppState = async (asset?: AssetProps | null) => {
     if (asset) {
+      await saveHiddenMediaField(HIDDEN_MEDIA_REF_ID, sdk, cma, asset.sys);
       setField({ assetId: asset.sys.id });
       setMedia(transformAsset(asset, sdk.field.locale));
-      await sdk.field.setValue({ assetId: asset.sys.id });
-      saveHiddenMediaField(HIDDEN_MEDIA_REF_ID, sdk, cma, asset.sys);
     }
   };
 
