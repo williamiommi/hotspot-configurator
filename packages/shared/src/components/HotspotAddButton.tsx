@@ -1,5 +1,3 @@
-import { useHotspotStore } from '../lib';
-
 interface HotspotAddButtonProps {
   onClick: () => void;
 }

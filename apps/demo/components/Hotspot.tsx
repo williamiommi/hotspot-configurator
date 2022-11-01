@@ -1,4 +1,3 @@
-import * as Tooltip from '@radix-ui/react-tooltip';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { isTouchDevice } from 'shared';
 import PopoverComponent from './Popover';
