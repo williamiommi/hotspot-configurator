@@ -1,9 +1,8 @@
 import { FieldExtensionSDK } from '@contentful/app-sdk';
 import { useCMA, useSDK } from '@contentful/react-apps-toolkit';
 import { useEffect } from 'react';
-import useHotspotStore from '../store/hotspotStore';
-import IField from '../ts/IField';
-import { stringifyCompare } from 'shared';
+import { stringifyCompare, IField, useHotspotStore } from 'shared';
+import { transformAsset } from '../utils';
 
 const useInitApp = () => {
   const sdk = useSDK<FieldExtensionSDK>();
@@ -14,9 +13,13 @@ const useInitApp = () => {
   const setIsAppLoading = useHotspotStore((state) => state.setIsAppLoading);
   const setField = useHotspotStore((state) => state.setField);
   const setMedia = useHotspotStore((state) => state.setMedia);
+  const setIsAdmin = useHotspotStore((state) => state.setIsAdmin);
 
   useEffect(() => {
     setIsAppLoading(true);
+
+    //set admin visibility
+    setIsAdmin(sdk.user.spaceMembership.admin);
 
     // subscribe to zustand field changes and save the new value
     const unsub = useHotspotStore.subscribe(
@@ -29,7 +32,7 @@ const useInitApp = () => {
       }
     );
     // save entry on every value update
-    sdk.field.onValueChanged(sdk.entry.save);
+    //sdk.field.onValueChanged(sdk.entry.save);
 
     const value: IField = sdk.field.getValue();
     if (value?.assetId) {
@@ -39,7 +42,9 @@ const useInitApp = () => {
       cma.asset
         .get({ assetId: value.assetId })
         .then((res) => {
-          if (res) setMedia(res, sdk.field.locale);
+          if (res) {
+            setMedia(transformAsset(res, sdk.field.locale));
+          }
         })
         .finally(() => {
           setIsAppLoading(false);

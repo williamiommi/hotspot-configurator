@@ -1,26 +1,25 @@
 import { FieldExtensionSDK } from '@contentful/app-sdk';
 import { useCMA, useSDK } from '@contentful/react-apps-toolkit';
 import { AssetProps } from 'contentful-management';
-import useHotspotStore from '../store/hotspotStore';
-import { saveHiddenMediaField } from '../utils';
+import { useHotspotStore } from 'shared';
+import { saveHiddenMediaField, transformAsset } from '../utils';
 
 const useMediaSelector = () => {
   const sdk = useSDK<FieldExtensionSDK>();
   const cma = useCMA();
-  const { field, setField, clearField, setMedia, clearMedia } = useHotspotStore((state) => ({
-    field: state.field,
-    setField: state.setField,
-    clearField: state.clearField,
-    setMedia: state.setMedia,
-    clearMedia: state.clearMedia,
-  }));
+  const field = useHotspotStore((state) => state.field);
+  const setField = useHotspotStore((state) => state.setField);
+  const clearField = useHotspotStore((state) => state.clearField);
+  const setMedia = useHotspotStore((state) => state.setMedia);
+  const clearMedia = useHotspotStore((state) => state.clearMedia);
+
   const HIDDEN_MEDIA_REF_ID = `${sdk.field.id}_mediaRef`;
 
-  const setAppState = (asset?: AssetProps | null) => {
+  const setAppState = async (asset?: AssetProps | null) => {
     if (asset) {
       setField({ assetId: asset.sys.id });
-      setMedia(asset, sdk.field.locale);
-      sdk.field.setValue({ assetId: asset.sys.id });
+      setMedia(transformAsset(asset, sdk.field.locale));
+      await sdk.field.setValue({ assetId: asset.sys.id });
       saveHiddenMediaField(HIDDEN_MEDIA_REF_ID, sdk, cma, asset.sys);
     }
   };
@@ -54,7 +53,12 @@ const useMediaSelector = () => {
     }
   };
 
-  return { openAsset, selectAsset, addAsset, removeAsset };
+  return {
+    openAsset,
+    selectAsset,
+    addAsset,
+    removeAsset,
+  };
 };
 
 export default useMediaSelector;

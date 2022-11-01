@@ -7,35 +7,9 @@ import {
   EntryProps,
   PlainClientAPI,
 } from 'contentful-management';
-import { v4 as uuidv4 } from 'uuid';
-import IHotspot from './ts/IHotspot';
-import IMedia from './ts/IMedia';
+import { IMedia } from 'shared';
 
-export const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-export const debounce = <F extends (...params: any[]) => void>(fn: F, delay: number) => {
-  let timeoutID: number;
-  return function (this: any, ...args: any[]) {
-    clearTimeout(timeoutID);
-    timeoutID = window.setTimeout(() => fn.apply(this, args), delay);
-  } as F;
-};
-
-export const generateEmptyHotspot = (): IHotspot => {
-  let hotSpot: IHotspot = {
-    id: uuidv4(),
-    dark: true,
-    title: 'Sample Title',
-    content: 'Sample Content',
-    x: 0,
-    y: 0,
-    naturalX: 0,
-    naturalY: 0,
-    percentageX: 0,
-    percentageY: 0,
-  };
-  return hotSpot;
-};
+const FIELDS_LIMIT = 50;
 
 export const transformAsset = (asset: AssetProps, locale: string): IMedia => {
   const url = asset.fields.file[locale].url || '';
@@ -64,6 +38,17 @@ export const saveHiddenMediaField = async (
     const hasHiddenMediaField = contentType.fields.find(
       (field) => field.id === hiddenMediaRefFieldID
     );
+
+    if (contentType.fields.length === FIELDS_LIMIT) {
+      sdk.dialogs.openConfirm({
+        title: 'Hotspot Configurator',
+        message: `You have reached the 50 fields limit.\r\n The app will works anyway but the media it's not linked to the current entry`,
+        confirmLabel: 'OK',
+        cancelLabel: '',
+        intent: 'primary',
+      });
+      return;
+    }
 
     if (!hasHiddenMediaField) {
       const isHotspotFieldLocalized =
