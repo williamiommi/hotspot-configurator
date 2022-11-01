@@ -7,6 +7,7 @@ interface HotspotDraggableProps {
   hotspot: IHotspot;
   label: number;
   imageRef: React.RefObject<HTMLImageElement>;
+  imageIsResizing: boolean;
   imageResizeCount: number;
 }
 
@@ -14,6 +15,7 @@ const HotspotDraggable: React.FC<HotspotDraggableProps> = ({
   hotspot,
   label,
   imageRef,
+  imageIsResizing,
   imageResizeCount,
 }) => {
   const { coords, onDoubleClickHandler, highlightedHotspot, isDragging } = useHotspotDraggableBag(
@@ -28,13 +30,13 @@ const HotspotDraggable: React.FC<HotspotDraggableProps> = ({
   });
 
   const hotspotClasses = classNames(
-    'absolute flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-mono text-sm',
+    'absolute flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-mono text-sm transition-opacity duration-300',
     {
       'bg-slate-700 text-white': hotspot.dark,
       'bg-white text-slate-700': !hotspot.dark,
       'animate-pulse bg-yellow-400 !text-white': highlightedHotspot === hotspot.id,
       'cursor-grab opacity-70': isDragging,
-      'opacity-0': highlightedHotspot && highlightedHotspot !== hotspot.id,
+      'opacity-0': (highlightedHotspot && highlightedHotspot !== hotspot.id) || imageIsResizing,
     }
   );
 
