@@ -39,18 +39,19 @@ export const saveHiddenMediaField = async (
       (field) => field.id === hiddenMediaRefFieldID
     );
 
-    if (contentType.fields.length === FIELDS_LIMIT) {
-      sdk.dialogs.openConfirm({
-        title: 'Hotspot Configurator',
-        message: `You have reached the 50 fields limit.\r\n The app will works anyway but the media it's not linked to the current entry`,
-        confirmLabel: 'OK',
-        cancelLabel: '',
-        intent: 'primary',
-      });
-      return;
-    }
-
     if (!hasHiddenMediaField) {
+      // check if we have already 50 fields on the entry
+      if (contentType.fields.length === FIELDS_LIMIT) {
+        sdk.dialogs.openConfirm({
+          title: 'Hotspot Configurator',
+          message: `You have reached the 50 fields limit.\r\n The app will works anyway but the media it's not linked to the current entry`,
+          confirmLabel: 'OK',
+          cancelLabel: '',
+          intent: 'primary',
+        });
+        return;
+      }
+
       const isHotspotFieldLocalized =
         contentType.fields.find((field) => field.id === sdk.field.id)?.localized || false;
 
