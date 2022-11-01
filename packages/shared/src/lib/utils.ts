@@ -31,6 +31,8 @@ export const generateEmptyHotspot = (): IHotspot => {
     content: 'Sample Content',
     x: 0,
     y: 0,
+    lastImageWidth: 0,
+    lastImageHeight: 0,
     naturalX: 0,
     naturalY: 0,
     percentageX: 0,

@@ -23,11 +23,9 @@ export const HotspotListItem: React.FC<HotspotListItemProps> = ({ hotspot, label
   const contentRef = useRef<HTMLTextAreaElement>(null);
   const darkRef = useRef<HTMLInputElement>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [isCoordsVisible, setIsCoordsVisible] = useState(false);
   const updateHotspot = useHotspotStore((state) => state.updateHotspot);
   const highlightHotspot = useHotspotStore((state) => state.highlightHotspot);
   const highlightedHotspot = useHotspotStore((state) => state.highlightedHotspot);
-  const isAdmin = useHotspotStore((state) => state.isAdmin);
 
   const updateHotspotHandler = () => {
     updateHotspot({

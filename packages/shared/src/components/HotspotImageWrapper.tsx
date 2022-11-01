@@ -10,7 +10,6 @@ export const HotspotImageWrapper: React.FC<HotspotImageWrapperProps> = () => {
   const isImageLoaded = useHotspotStore((state) => state.isImageLoaded);
   const highlightedHotspot = useHotspotStore((state) => state.highlightedHotspot);
   const media = useHotspotStore((state) => state.media);
-  const field = useHotspotStore((state) => state.field);
   const setIsImageLoaded = useHotspotStore((state) => state.setIsImageLoaded);
   return (
     <div className="relative">

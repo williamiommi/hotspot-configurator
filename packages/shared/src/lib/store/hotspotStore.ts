@@ -22,17 +22,6 @@ interface IHotspotStore {
   highlightHotspot: (hotspotIdToHighlight: string) => void;
   addHotspot: () => IField;
   updateHotspot: (hotspotToUpdate: IHotspot) => IField;
-  updateHotspotPosition: (
-    hotspotId: string,
-    positions: {
-      x: number;
-      y: number;
-      naturalX: number;
-      naturalY: number;
-      percentageX: number;
-      percentageY: number;
-    }
-  ) => IField;
   removeHotspot: (hotspotIdToRemove: string) => IField;
 }
 
@@ -73,18 +62,6 @@ export const useHotspotStore = create(
         hotspots: (get().field?.hotspots || []).map((currentHotspot) => {
           if (currentHotspot.id !== hotspotToUpdate.id) return currentHotspot;
           return hotspotToUpdate;
-        }),
-      };
-      set(() => ({ field: newField }));
-      return newField;
-    },
-    updateHotspotPosition: (hotspotId, { x, y, naturalX, naturalY, percentageX, percentageY }) => {
-      const newField = {
-        ...get().field,
-        hotspots: (get().field?.hotspots || []).map((currentHotspot) => {
-          if (currentHotspot.id === hotspotId)
-            return { ...currentHotspot, x, y, naturalX, naturalY, percentageX, percentageY };
-          return currentHotspot;
         }),
       };
       set(() => ({ field: newField }));

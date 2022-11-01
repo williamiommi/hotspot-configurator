@@ -5,6 +5,8 @@ export interface IHotspot {
   dark: boolean;
   x: number;
   y: number;
+  lastImageWidth: number;
+  lastImageHeight: number;
   naturalX: number;
   naturalY: number;
   percentageX: number;

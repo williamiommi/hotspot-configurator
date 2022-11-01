@@ -11,8 +11,8 @@ const useHotspotDraggableBag = (
 ) => {
   const [coords, setCoords] = useState({ x: hotspot.x, y: hotspot.y });
   const [lastImageSize, setLastImageSize] = useState({
-    offsetWidth: imageRef.current!.offsetWidth,
-    offsetHeight: imageRef.current!.offsetHeight,
+    offsetWidth: hotspot.lastImageWidth,
+    offsetHeight: hotspot.lastImageHeight,
   });
   const [isDragging, setIsDragging] = useState(false);
   const updateHotspot = useHotspotStore((state) => state.updateHotspot);
@@ -47,6 +47,8 @@ const useHotspotDraggableBag = (
       ...hotspot,
       x: coords.x,
       y: coords.y,
+      lastImageWidth: offsetWidth,
+      lastImageHeight: offsetHeight,
       percentageX,
       percentageY,
       naturalX,
