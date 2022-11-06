@@ -8,9 +8,8 @@ It let's you define hotspots over an image with a drag functionality.
 <br/>
 <br/>
 
-## Demo
-
-[https://hotspot-configurator-demo.vercel.app/](https://hotspot-configurator-demo.vercel.app/)
+## License
+This repository is published under the [MIT](./LICENSE.md) license.
 
 ## What's inside?
 
@@ -52,3 +51,7 @@ Learn more about the power of Turborepo:
 - [Next.js](https://nextjs.org)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Turborepo](https://turborepo.org)
+
+# Demo
+
+[https://hotspot-configurator-demo.vercel.app/](https://hotspot-configurator-demo.vercel.app/)
