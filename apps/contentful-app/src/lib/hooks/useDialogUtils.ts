@@ -13,7 +13,7 @@ const useDialogUtils = () => {
       .openConfirm({
         title: 'Confirmation required',
         message,
-        intent: 'positive',
+        intent: 'negative',
       })
       .then((result) => {
         if (result) {
