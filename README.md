@@ -12,10 +12,6 @@ It let's you define hotspots over an image with a drag functionality.
 
 [https://hotspot-configurator-demo.vercel.app/](https://hotspot-configurator-demo.vercel.app/)
 
-<br/>
-<br/>
-<br/>
-
 ## What's inside?
 
 The repo has been created from the basic [Turborepo](https://turbo.build/repo/docs/getting-started/create-new) example and uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
