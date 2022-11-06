@@ -52,6 +52,6 @@ Learn more about the power of Turborepo:
 - [Tailwindcss](https://tailwindcss.com/)
 - [Turborepo](https://turborepo.org)
 
-# Demo
+## Demo
 
 [https://hotspot-configurator-demo.vercel.app/](https://hotspot-configurator-demo.vercel.app/)
