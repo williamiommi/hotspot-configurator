@@ -8,12 +8,12 @@ const useDialogUtils = () => {
     ModalLauncher.open(({ isShown, onClose }) => {
       return (
         <ModalConfirm
-          title="Hotspot Configurator // Demo"
+          title='Hotspot Configurator // Demo'
           onConfirm={onClose}
           onCancel={onClose}
           cancelLabel={false}
-          intent="primary"
-          confirmLabel="OK"
+          intent='primary'
+          confirmLabel='OK'
           isShown={isShown}
         >
           <Text>
@@ -29,10 +29,10 @@ const useDialogUtils = () => {
     ModalLauncher.open(({ isShown, onClose }) => {
       return (
         <ModalConfirm
-          title="Confirmation required"
+          title='Confirmation required'
           onConfirm={() => onClose(true)}
           onCancel={() => onClose(false)}
-          intent="positive"
+          intent='negative'
           isShown={isShown}
         >
           <Text>Do you really want to remove the selected hotspot?</Text>
