@@ -26,12 +26,12 @@ const Home: NextPage = () => {
                   PLAYGROUND
                 </a>
               </Link>
-              <Link href='/'>
+              <Link href='https://contentful.com/blog/building-a-user-friendly-image-hotspot-configurator/'>
                 <a
                   className='flex items-center justify-center gap-2 underline transition-opacity hover:opacity-70'
                   target='_blank'
                 >
-                  Visit the article <ExternalLink />
+                  Read the article <ExternalLink />
                 </a>
               </Link>
             </div>

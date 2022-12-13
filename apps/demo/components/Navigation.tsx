@@ -1,9 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ExternalLink from './icons/ExternalLink';
 import LogoIcon from './icons/LogoIcon';
 import { Menu, IconButton } from '@contentful/f36-components';
 import { MenuIcon } from '@contentful/f36-icons';
+
+const repoLink = 'https://github.com/williamiommi/hotspot-configurator';
+const articleLink =
+  'https://contentful.com/blog/building-a-user-friendly-image-hotspot-configurator/';
 
 const Navigation = () => {
   const { pathname } = useRouter();
@@ -35,12 +40,20 @@ const Navigation = () => {
         </Link>
       </nav>
       <div className='hidden w-[300px] justify-end lg:flex'>
-        <Link href=''>
+        <Link href={articleLink}>
           <a
             target='_blank'
             className='flex items-center gap-2 rounded-lg bg-blue-700 p-4 font-bold text-white transition-colors duration-300 hover:bg-blue-800'
           >
-            View the article <ExternalLink />
+            Read the article <ExternalLink />
+          </a>
+        </Link>
+        <Link href={repoLink}>
+          <a
+            target='_blank'
+            className='flex items-center px-2 transition-opacity duration-300 hover:opacity-70'
+          >
+            <img src='/github-mark.svg' alt='github' width='30' height='30' />
           </a>
         </Link>
       </div>
@@ -77,12 +90,22 @@ const Navigation = () => {
             </Link>
           </Menu.Item>
           <Menu.Item className='!py-5 hover:!cursor-auto hover:!bg-transparent'>
-            <Link href=''>
+            <Link href={articleLink}>
               <a
                 target='_blank'
                 className='flex items-center gap-2 rounded-lg bg-blue-700 p-4 font-bold text-white transition-colors duration-300 hover:bg-blue-800'
               >
-                View the article <ExternalLink />
+                Read the article <ExternalLink />
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link href={repoLink}>
+              <a
+                target='_blank'
+                className='flex items-center justify-center pb-2 transition-opacity duration-300 hover:opacity-70'
+              >
+                <img src='/github-mark.svg' alt='github' width='30' height='30' />
               </a>
             </Link>
           </Menu.Item>
